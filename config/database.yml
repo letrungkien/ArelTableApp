@@ -1,0 +1,8 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: arel_test
+  pool: 5
+  username: root
+  password: toor
+  local_infile: true
