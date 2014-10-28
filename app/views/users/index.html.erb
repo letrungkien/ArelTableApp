@@ -1,0 +1,10 @@
+<ul>
+<% @users.each do |user| %>
+  <li><%=
+  link_to user.name, user_path(user)
+  -%>&nbsp;<%=
+  user.posts.count
+  -%>&nbsp; post(s)
+  </li>
+<% end %>
+</ul>

@@ -1,0 +1,12 @@
+<div class="post_area"><%=
+post.content
+-%></div>
+<%
+post.comments.each do |comment|
+-%>
+<div class="comment_area"><%=
+  comment.content
+-%></div>
+<%
+end
+-%>
