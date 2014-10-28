@@ -1,28 +1,18 @@
-== README
+Arel
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Arel có thể giải quyết được vấn đề về viết câu lệnh SQL mà AR thông thường không giải quyết được.
+Các câu như OR, UNION, LEFT OUTER JOIN
 
-Things you may want to cover:
+Bằng cách sử dụng Arel ta có thể viết được những câu SQL mà không phải đưa về thuần SQL.
 
-* Ruby version
+Bài toán trong application này:
+1 User có thể đăng Post vào ChatRoom, có thể Comment vào Post.
+Post, ChatRoom, Comment đều được inherit từ Text
 
-* System dependencies
+Yêu cầu: Tìm kiếm ChatRoom mà có cả Post lẫn Comment của User đó.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Một số lưu ý khi sử dụng Arel: 
+* Khi sử dụng các model là descendant của một model chính thì phải set table_alias
+* Sau khi đã đạt được mục đích (SQL chạy ok) thì phải set table_alias trở về nil để không bị lỗi các query khác.
+* Arel có thể sử dụng liên tiếp (chainable), i.e. where(...).or(...) rất tiện lợi.
+* Dễ dàng sửa đổi khi có những thay đổi về logic.
