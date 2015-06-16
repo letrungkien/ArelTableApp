@@ -1,4 +1,20 @@
-Arel
+###Arel
+Arel stands for  A Relational Algebra.
+Arel can solve the problem when using Sql which **ActiveRecord** cannot solve such as `OR`, `UNION`, and `LEFT OUTER JOIN`. Solving here means chainable methods.
+
+By using Arel, we don't need to write string Sql
+
+###Context of this example:
+A `user` can write a `Post` on `ChatRoom`, and give `Comment` on `Post`
+All the class `Post`, `ChatRoom` and `Comment` are inheritted from `Text`
+
+###Requirement:
+Find all the `ChatRoom` that have a specific user's comments and posts.
+
+###Notes when using Arel:
+  - Must set table alias for descendant class, i.e. Post is descendant of Text
+  - Reset the table alias after use because table alias is cached and will causes error for another SQL.
+  - Arel methods are chainable, i.e. where(...).or(...) is very convenient, right?
 
 Arel có thể giải quyết được vấn đề về viết câu lệnh SQL mà AR thông thường không giải quyết được.
 Các câu như OR, UNION, LEFT OUTER JOIN
